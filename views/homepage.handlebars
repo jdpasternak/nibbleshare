@@ -1,0 +1,12 @@
+<section>
+  <ul>
+    {{#each posts as |post|}}
+      <li>
+        <div>
+          <a href="/post/{{id}}"><h2>{{title}}</h2></a>
+          <p>Written by {{user.username}} on {{created_at}}</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</section>
