@@ -1,0 +1,30 @@
+{
+  "name": "nibbleshare",
+  "version": "1.0.0",
+  "description": "A blog for techies.",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdpasternak/nibbleshare.git"
+  },
+  "author": "Jake Pasternak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdpasternak/nibbleshare/issues"
+  },
+  "homepage": "https://github.com/jdpasternak/nibbleshare#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.15.0"
+  }
+}
