@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("sequelize");
-const User = require("./User");
+const sequelize = require("../config/connection");
 const markdown = require("markdown-js");
 
 class Post extends Model {}
@@ -47,7 +46,7 @@ Post.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "post",
   }
 );
 
