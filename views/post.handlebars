@@ -1,10 +1,11 @@
 <article>
   <h2>{{title}}</h2>
-  <p>Written by {{user.username}} on {{created_at}}</p>
+  <p>Written by {{user.username}} on {{formatDate created_at}}</p>
   {{{markdownToHtml content}}}
+  <h3>Comments</h3>
   {{#each comments as |comment|}}
     <div>
-      <p>{{user.username}} said on {{created_at}}</p>
+      <p>{{user.username}} said on {{formatDate created_at}}</p>
       <p>{{comment_text}}</p>
     </div>
   {{/each}}
