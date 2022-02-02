@@ -34,7 +34,7 @@ Post.init(
   {
     hooks: {
       beforeCreate(newPostData) {
-        newPostData.content = markdown.makeHtml(content);
+        newPostData.content = markdown.makeHtml(newPostData.content);
         return newPostData;
       },
       beforeUpdate(updatedPostData) {
@@ -43,7 +43,6 @@ Post.init(
       },
     },
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "post",
