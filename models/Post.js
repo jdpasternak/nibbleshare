@@ -32,16 +32,6 @@ Post.init(
     },
   },
   {
-    hooks: {
-      beforeCreate(newPostData) {
-        newPostData.content = markdown.makeHtml(newPostData.content);
-        return newPostData;
-      },
-      beforeUpdate(updatedPostData) {
-        updatedPostData.content = markdown.makeHtml(content);
-        return updatedPostData;
-      },
-    },
     sequelize,
     freezeTableName: true,
     underscored: true,

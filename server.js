@@ -4,7 +4,8 @@ const path = require("path");
 const PORT = process.env.PORT | 3001;
 const routes = require("./controllers");
 const exphbs = require("express-handlebars");
-const hbs = exphbs.create({});
+const helpers = require("./utils/helpers");
+const hbs = exphbs.create({ helpers });
 
 const app = express();
 
