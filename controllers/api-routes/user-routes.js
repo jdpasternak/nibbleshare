@@ -23,7 +23,7 @@ router.get("/:id", (req, res) => {
   })
     .then((dbUserData) => {
       if (!dbUserData) {
-        res.status(404).json({ message: "No user found with that id" });
+        res.status(404).json({ message: "No user found with that ID" });
         return;
       }
       res.json(dbUserData);
@@ -49,7 +49,24 @@ router.post("/", (req, res) => {
 });
 
 // PUT /api/users/:id
-router.put("/:id", (req, res) => {});
+router.put("/:id", (req, res) => {
+  User.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "No user found with that ID" });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // DELETE /api/users/:id
 router.delete("/:id", (req, res) => {});
