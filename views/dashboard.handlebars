@@ -1,9 +1,13 @@
 <section>
   <h2>My Posts</h2>
+  {{#if posts}}
   <ul>
     {{#each posts as |post|}}
         {{> post-preview post}}
     {{/each}}
   </ul>
+  {{else}}
+    <div>You haven't posted anything yet!</div>
+  {{/if}}
 
 </section>

@@ -60,11 +60,10 @@ router.get("/post/edit/:id", (req, res) => {
 // GET /dashobard
 router.get("/dashboard", withAuth, (req, res) => {
   // const user_id = req.session.user_id;
-  const user_id = 1;
   Post.findAll({
     where: {
-      // id: req.session.user_id
-      user_id: user_id,
+      id: req.session.user_id
+      // user_id: user_id,
     },
     attributes: ["id", "title", "content", "created_at"],
     include: [
