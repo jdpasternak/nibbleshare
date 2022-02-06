@@ -1,4 +1,4 @@
-const $logoutButton = document.querySelector("#logoutButton");
+const $logoutButton = document.querySelectorAll(".logoutButton");
 
 const logoutButtonHandler = async (event) => {
   event.preventDefault();
@@ -14,4 +14,6 @@ const logoutButtonHandler = async (event) => {
   }
 };
 
-$logoutButton.addEventListener("click", logoutButtonHandler);
+$logoutButton.forEach((lob) =>
+  lob.addEventListener("click", logoutButtonHandler)
+);
