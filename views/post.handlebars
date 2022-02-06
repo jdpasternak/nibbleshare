@@ -1,22 +1,36 @@
 <article>
   <h2>{{post.title}}</h2>
   {{#if ownPost}}
-    <a href="/post/edit/{{post.id}}">Edit</a>
-    <button class="delete-button">Delete</button>
+    <a class="btn" href="/post/edit/{{post.id}}">Edit</a>
+    <button class="delete-button btn red">Delete</button>
   {{/if}}
   <p>Written by {{post.user.username}} on {{formatDate post.created_at}}</p>
   {{{markdownToHtml post.content}}}
   <h3>Comments</h3>
   {{#if loggedIn}}
     <form class="comment-form">
-      <textarea id="comment-text"></textarea>
-      <input type="submit" value="Comment" />
+      <div class="input-field">
+        <textarea
+          id="comment-text"
+          class="materialize-textarea"
+          placeholder="Add a comment..."
+        ></textarea>
+      </div>
+
+      <input class="btn" type="submit" value="Comment" />
     </form>
   {{/if}}
   {{#each post.comments as |comment|}}
-    <div>
-      <p>{{user.username}} said on {{formatDate created_at}}</p>
-      <p>{{comment_text}}</p>
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">{{user.username}}
+            said on
+            {{formatDate created_at}}</span>
+          <span>{{comment_text}}</span>
+        </div>
+      </div>
+
     </div>
   {{/each}}
 </article>
