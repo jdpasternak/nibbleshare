@@ -2,12 +2,12 @@
 <p>noun </p>
 <p>1. a four-bit data set, or half a byte 2. A very small quantity</p>
 <section>
-  <ul>
+  <div clas="row">
     {{#each posts as |post|}}
-      <li>
         {{> post-preview post}}
-      </li>
     {{/each}}
+  </div>
+    
     {{comments}}
-  </ul>
+  
 </section>

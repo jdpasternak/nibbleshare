@@ -3,24 +3,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <link rel="stylesheet" href="/stylesheets/styles.css" />
     <title>NibbleShare</title>
   </head>
   <body>
     <header>
-      <a href="/"><h1>NibbleShare</h1></a>
       <nav>
-        {{#if loggedIn}}
-          <a href="/dashboard">Dashboard</a>
-          <button id="logoutButton">Logout</a>
-        {{else}}
-          <a href="/login">Login/Signup</a>
-        {{/if}}
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo">NibbleShare</a>
+          <ul id="nav-mobile" class="right hide-on-med-down">
+            {{#if loggedIn}}
+              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a id="logoutButton">Logout</a></li>
+            {{else}}
+              <li><a href="/login">Login/Signup</a></li>
+            {{/if}}
+          </ul>
+        </div>
       </nav>
     </header>
-    <main>{{{body}}}</main>
-    <footer>Thanks for visiting NibbleShare!</footer>
+    <main class="container">{{{body}}}</main>
+    <footer class="footer-copyright red lighten-2">
+      <div class="container center white-text">
+        &copy; 2022 NibbleShare
+      </div>
+    </footer>
 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    ></script>
     {{#if loggedIn}}
       <script src="/javascript/logout.js"></script>
     {{/if}}
