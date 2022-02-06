@@ -1,8 +1,13 @@
 <section>
   <h2>Edit Post</h2>
   <form class="edit-post-form">
-    <input size="{{title.length}}" type="text" name="title" value="{{title}}" />
-    <textarea cols="100" rows="20" name="content">{{content}}</textarea>
+    <input
+      size="{{post.title.length}}"
+      type="text"
+      name="title"
+      value="{{post.title}}"
+    />
+    <textarea cols="100" rows="20" name="content">{{post.content}}</textarea>
     <input type="submit" value="Save" />
   </form>
 </section>

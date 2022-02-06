@@ -49,11 +49,16 @@ router.get("/post/:id", withAuth, (req, res) => {
 });
 
 // GET /post/edit/:id
-router.get("/post/edit/:id", (req, res) => {
+router.get("/post/edit/:id", withAuth, (req, res) => {
   Post.findOne({
     where: { id: req.params.id },
   }).then((dbPostData) => {
-    res.render("edit-post", dbPostData.get({ plain: true }));
+    if (req.session.user_id !== dbPostData.user_id) {
+      res.redirect(`/post/${id}`);
+      return;
+    }
+    const post = dbPostData.get({ plain: true });
+    res.render("edit-post", { post, loggedIn: req.session.loggedIn });
   });
 });
 
@@ -62,7 +67,7 @@ router.get("/dashboard", withAuth, (req, res) => {
   // const user_id = req.session.user_id;
   Post.findAll({
     where: {
-      id: req.session.user_id,
+      user_id: req.session.user_id,
       // user_id: user_id,
     },
     attributes: ["id", "title", "content", "created_at"],
