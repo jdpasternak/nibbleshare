@@ -1,4 +1,5 @@
 const { Post, User, Comment } = require("../models");
+const withAuth = require("../utils/auth");
 
 const router = require("express").Router();
 
@@ -53,7 +54,7 @@ router.get("/post/edit/:id", (req, res) => {
   });
 });
 
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", withAuth, (req, res) => {
   // const user_id = req.session.user_id;
   const user_id = 1;
   Post.findAll({
