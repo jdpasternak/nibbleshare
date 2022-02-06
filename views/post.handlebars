@@ -3,6 +3,12 @@
   <p>Written by {{post.user.username}} on {{formatDate post.created_at}}</p>
   {{{markdownToHtml post.content}}}
   <h3>Comments</h3>
+  {{#if loggedIn}}
+    <form class="comment-form">
+      <textarea id="comment-text"></textarea>
+      <input type="submit" value="Comment" />
+    </form>
+  {{/if}}
   {{#each post.comments as |comment|}}
     <div>
       <p>{{user.username}} said on {{formatDate created_at}}</p>
@@ -10,3 +16,6 @@
     </div>
   {{/each}}
 </article>
+{{#if loggedIn}}
+  <script src="/javascript/comment.js"></script>
+{{/if}}
