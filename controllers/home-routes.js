@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 });
 
 // GET /post/:id
-router.get("/post/:id", (req, res) => {
+router.get("/post/:id", withAuth, (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id,
@@ -62,7 +62,7 @@ router.get("/dashboard", withAuth, (req, res) => {
   // const user_id = req.session.user_id;
   Post.findAll({
     where: {
-      id: req.session.user_id
+      id: req.session.user_id,
       // user_id: user_id,
     },
     attributes: ["id", "title", "content", "created_at"],
