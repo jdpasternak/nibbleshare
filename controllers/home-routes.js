@@ -16,6 +16,10 @@ router.get("/", (req, res) => {
   });
 });
 
+router.get("/post/new", withAuth, (req, res) => {
+  res.render("new-post", { loggedIn: req.session.loggedIn });
+});
+
 // GET /post/:id
 router.get("/post/:id", withAuth, (req, res) => {
   Post.findOne({
