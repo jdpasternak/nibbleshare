@@ -1,18 +1,46 @@
-<form class="login-form">
-  <label for="login-email">Email</label>
-  <input id="login-email" type="email" />
-  <label for="login-password">Password</label>
-  <input id="login-password" type="password" />
-  <input type="submit" value="Login" />
-</form>
-<form class="signup-form">
-  <label for="signup-username">Username</label>
-  <input id="signup-username" type="text" />
-  <label for="signup-email">Email</label>
-  <input id="signup-email" type="text" />
-  <label for="signup-password">Password</label>
-  <input id="signup-password" type="text" />
-  <input type="submit" value="Signup" />
-</form>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Login</span>
+        <form class="login-form">
+          <div class="input-field">
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" />
+          </div>
+          <div class="input-field">
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" />
+          </div>
+          <input class="btn" type="submit" value="Login" />
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Sign Up</span>
+        <form class="signup-form">
+          <div class="input-field">
+            <label for="signup-username">Username</label>
+            <input id="signup-username" type="text" />
+          </div>
+          <div class="input-field">
+            <label for="signup-email">Email</label>
+            <input id="signup-email" type="text" />
+          </div>
+          <div class="input-field">
+            <label for="signup-password">Password</label>
+            <input id="signup-password" type="text" />
+          </div>
+          <input class="btn" type="submit" value="Signup" />
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <script src="/javascript/login.js"></script>
