@@ -12,7 +12,7 @@
       <nav>
         {{#if loggedIn}}
           <a href="/dashboard">Dashboard</a>
-          <a href="/logout">Logout</a>
+          <button id="logoutButton">Logout</a>
         {{else}}
           <a href="/login">Login/Signup</a>
         {{/if}}
@@ -20,5 +20,9 @@
     </header>
     <main>{{{body}}}</main>
     <footer>Thanks for visiting NibbleShare!</footer>
+
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
   </body>
 </html>
