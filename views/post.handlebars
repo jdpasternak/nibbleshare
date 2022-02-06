@@ -1,5 +1,9 @@
 <article>
   <h2>{{post.title}}</h2>
+  {{#if ownPost}}
+    <button class="edit-button">Edit</button>
+    <button class="delete-button">Delete</button>
+  {{/if}}
   <p>Written by {{post.user.username}} on {{formatDate post.created_at}}</p>
   {{{markdownToHtml post.content}}}
   <h3>Comments</h3>

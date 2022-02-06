@@ -26,7 +26,7 @@ router.get("/post/:id", withAuth, (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "title", "content", "created_at"],
+    attributes: ["id", "title", "content", "created_at", "user_id"],
     include: [
       {
         model: User,
@@ -44,7 +44,11 @@ router.get("/post/:id", withAuth, (req, res) => {
   })
     .then((dbPostData) => {
       const post = dbPostData.get({ plain: true });
-      res.render("post", { post, loggedIn: req.session.loggedIn });
+      res.render("post", {
+        post,
+        loggedIn: req.session.loggedIn,
+        ownPost: req.session.user_id === post.user_id,
+      });
     })
     .catch((err) => {
       console.log(err);
