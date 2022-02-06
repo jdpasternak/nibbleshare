@@ -16,6 +16,7 @@ router.get("/", (req, res) => {
   });
 });
 
+// GET /post/:id
 router.get("/post/:id", (req, res) => {
   Post.findOne({
     where: {
@@ -38,7 +39,10 @@ router.get("/post/:id", (req, res) => {
     ],
   })
     .then((dbPostData) => {
-      res.render("post", dbPostData.get({ plain: true }));
+      res.render(
+        "post",
+        dbPostData.get({ plain: true, loggedIn: req.session.loggedIn })
+      );
     })
     .catch((err) => {
       console.log(err);
@@ -46,6 +50,7 @@ router.get("/post/:id", (req, res) => {
     });
 });
 
+// GET /post/edit/:id
 router.get("/post/edit/:id", (req, res) => {
   Post.findOne({
     where: { id: req.params.id },
@@ -54,6 +59,7 @@ router.get("/post/edit/:id", (req, res) => {
   });
 });
 
+// GET /dashobard
 router.get("/dashboard", withAuth, (req, res) => {
   // const user_id = req.session.user_id;
   const user_id = 1;
