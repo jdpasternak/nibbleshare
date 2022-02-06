@@ -4,8 +4,8 @@ module.exports = {
     return markdown.makeHtml(markdownText);
   },
   formatDate: (date) => {
-    return `${new Date(date).getDay()}/${new Date(date).getMonth()}/${new Date(
+    return `${new Date(date).getMonth() + 1}/${new Date(
       date
-    ).getFullYear()}`;
+    ).getDate()}/${new Date(date).getFullYear()}`;
   },
 };
