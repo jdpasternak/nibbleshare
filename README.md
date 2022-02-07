@@ -17,7 +17,7 @@ This app is currently hosted [on Heroku](https://rocky-inlet-01788.herokuapp.com
 
 The user interface of this application should be relatively intuitive. The follow sections describe the different views a user would see.
 
-![the homepage](/assets/images/homepage.PNG)
+![the homepage](/assets/images/screenshot.PNG)
 
 ### Logging in / Signing up
 
